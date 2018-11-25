@@ -15,7 +15,8 @@
 
 - (void)awakeFromNib
 {
-    self.tabBarItem.image = [[FAKFontAwesome tableIconWithSize:30] imageWithSize:CGSizeMake(30, 30)];
+    [super awakeFromNib];
+    self.tabBarItem.image = [[FAKFontAwesome tableIconWithSize:30 style:FAKFontAwesomeStyleSolid] imageWithSize:CGSizeMake(30, 30)];
     self.tabBarItem.title = @"Icon Map";
 }
 
@@ -102,7 +103,7 @@
 {
     NSArray *keys = [[[FAKFontAwesome allIcons] allKeys] sortedArrayUsingSelector:@selector(compare:)];
     for (NSString *key in keys) {
-        [self.icons addObject:[FAKFontAwesome iconWithCode:key size:50]];
+        [self.icons addObject:[FAKFontAwesome iconWithIdentifier:key size:50 error:nil]];
     }
 }
 
@@ -110,7 +111,7 @@
 {
     NSArray *keys = [[[FAKFoundationIcons allIcons] allKeys] sortedArrayUsingSelector:@selector(compare:)];
     for (NSString *key in keys) {
-        [self.icons addObject:[FAKFoundationIcons iconWithCode:key size:50]];
+        [self.icons addObject:[FAKFoundationIcons iconWithIdentifier:key size:50 error:nil]];
     }
 }
 
@@ -118,7 +119,7 @@
 {
     NSArray *keys = [[[FAKZocial allIcons] allKeys] sortedArrayUsingSelector:@selector(compare:)];
     for (NSString *key in keys) {
-        [self.icons addObject:[FAKZocial iconWithCode:key size:40]];
+        [self.icons addObject:[FAKZocial iconWithIdentifier:key size:40 error:nil]];
     }
 }
 
@@ -126,7 +127,7 @@
 {
     NSArray *keys = [[[FAKIonIcons allIcons] allKeys] sortedArrayUsingSelector:@selector(compare:)];
     for (NSString *key in keys) {
-        [self.icons addObject:[FAKIonIcons iconWithCode:key size:50]];
+        [self.icons addObject:[FAKIonIcons iconWithIdentifier:key size:50 error:nil]];
     }
 }
 
@@ -134,7 +135,7 @@
 {
     NSArray *keys = [[[FAKOcticons allIcons] allKeys] sortedArrayUsingSelector:@selector(compare:)];
     for (NSString *key in keys) {
-        [self.icons addObject:[FAKOcticons iconWithCode:key size:48]];
+        [self.icons addObject:[FAKOcticons iconWithIdentifier:key size:48 error:nil]];
     }
 }
 

@@ -15,7 +15,7 @@
     [super awakeFromNib];
     
     UIImage *circledFlag =
-    [UIImage imageWithStackedIcons:@[[FAKFontAwesome squareOIconWithSize:35], [FAKFontAwesome flagIconWithSize:18]]
+    [UIImage imageWithStackedIcons:@[[FAKFontAwesome squareIconWithSize:35 style:FAKFontAwesomeStyleRegular], [FAKFontAwesome flagIconWithSize:18 style:FAKFontAwesomeStyleSolid]]
                          imageSize:CGSizeMake(35, 35)];
     
     self.tabBarItem.image = circledFlag;
@@ -31,19 +31,19 @@
 {
     if (!_stackedIcons) {
         
-        FAKIcon *squareOIcon = [FAKFontAwesome squareOIconWithSize:70];
+        FAKIcon *squareOIcon = [FAKFontAwesome squareIconWithSize:70 style:FAKFontAwesomeStyleRegular];
         
-        FAKIcon *banIcon = [FAKFontAwesome banIconWithSize:75];
+        FAKIcon *banIcon = [FAKFontAwesome banIconWithSize:75 style:FAKFontAwesomeStyleSolid];
         [banIcon addAttribute:NSForegroundColorAttributeName value:[UIColor redColor]];
 
         _stackedIcons = @[
-            @[[FAKFontAwesome twitterIconWithSize:35], squareOIcon],
-            @[[FAKFontAwesome weiboIconWithSize:35], squareOIcon],
-            @[[FAKFontAwesome tumblrIconWithSize:35], squareOIcon],
+            @[[FAKFontAwesome twitterIconWithSize:35 style:FAKFontAwesomeStyleBrands], squareOIcon],
+            @[[FAKFontAwesome weiboIconWithSize:35 style:FAKFontAwesomeStyleBrands], squareOIcon],
+            @[[FAKFontAwesome tumblrIconWithSize:35 style:FAKFontAwesomeStyleBrands], squareOIcon],
             
-            @[[FAKFontAwesome cameraIconWithSize:35], banIcon],
-            @[[FAKFontAwesome phoneIconWithSize:35], banIcon],
-            @[[FAKFontAwesome bullhornIconWithSize:35], banIcon],
+            @[[FAKFontAwesome cameraIconWithSize:35 style:FAKFontAwesomeStyleSolid], banIcon],
+            @[[FAKFontAwesome phoneIconWithSize:35 style:FAKFontAwesomeStyleSolid], banIcon],
+            @[[FAKFontAwesome bullhornIconWithSize:35 style:FAKFontAwesomeStyleSolid], banIcon],
         ];
     }
     

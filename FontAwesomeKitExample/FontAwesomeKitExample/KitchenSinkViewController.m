@@ -35,7 +35,7 @@
                                                                             target:nil
                                                                             action:nil];
     
-    FAKFontAwesome *refreshIcon = [FAKFontAwesome refreshIconWithSize:18];
+    FAKFontAwesome *refreshIcon = [FAKFontAwesome syncIconWithSize:18 style:FAKFontAwesomeStyleSolid];
     [refreshIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
     UIImage *rightImage = [refreshIcon imageWithSize:CGSizeMake(18, 18)];
     refreshIcon.iconFontSize = 15;
@@ -47,18 +47,18 @@
                                                                             action:nil];
     
     // UISegmentedControl
-    FAKFontAwesome *starIcon = [FAKFontAwesome starIconWithSize:15];
+    FAKFontAwesome *starIcon = [FAKFontAwesome starIconWithSize:15 style:FAKFontAwesomeStyleSolid];
     [starIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
     [self.segment setImage:[starIcon imageWithSize:CGSizeMake(15, 15)] forSegmentAtIndex:0];
     
-    FAKFontAwesome *bookmarkIcon = [FAKFontAwesome bookmarkIconWithSize:15];
+    FAKFontAwesome *bookmarkIcon = [FAKFontAwesome bookmarkIconWithSize:15 style:FAKFontAwesomeStyleSolid];
     [bookmarkIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
     [self.segment setImage:[bookmarkIcon imageWithSize:CGSizeMake(15, 15)] forSegmentAtIndex:1];
 
     
     // Mixed icons
     NSMutableAttributedString *attributionMas = [[NSMutableAttributedString alloc] init];
-    [attributionMas appendAttributedString:[[FAKFontAwesome facebookIconWithSize:18] attributedString]];
+    [attributionMas appendAttributedString:[[FAKFontAwesome facebookIconWithSize:18 style:FAKFontAwesomeStyleBrands] attributedString]];
     [attributionMas appendAttributedString:[[FAKZocial amazonIconWithSize:18] attributedString]];
     [attributionMas appendAttributedString:[[FAKZocial kloutIconWithSize:18] attributedString]];
     [attributionMas appendAttributedString:[[NSAttributedString alloc] initWithString:@"       "]];
@@ -72,12 +72,12 @@
     
     
     // Mixed icons and normal strings
-    FAKFontAwesome *twitterIcon = [FAKFontAwesome twitterIconWithSize:20];
+    FAKFontAwesome *twitterIcon = [FAKFontAwesome twitterIconWithSize:20 style:FAKFontAwesomeStyleBrands];
     [twitterIcon addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:58/255.0 green:215/255.0 blue:255/255.0 alpha:1.0]];
     NSMutableAttributedString *twitterMas = [[twitterIcon attributedString] mutableCopy];
     [twitterMas appendAttributedString:[[NSAttributedString alloc] initWithString:@"  @PrideChung" attributes:@{NSForegroundColorAttributeName: [UIColor blackColor]}]];
     
-    FAKFontAwesome *githubIcon = [FAKFontAwesome githubAltIconWithSize:20];
+    FAKFontAwesome *githubIcon = [FAKFontAwesome githubAltIconWithSize:20 style:FAKFontAwesomeStyleBrands];
     [githubIcon addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor]];
     NSMutableAttributedString *githubMas = [[githubIcon attributedString] mutableCopy];
     [githubMas appendAttributedString:[[NSAttributedString alloc] initWithString:@"  @PrideChung" attributes:@{NSForegroundColorAttributeName: [UIColor blackColor]}]];

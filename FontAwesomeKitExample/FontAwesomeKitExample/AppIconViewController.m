@@ -12,7 +12,8 @@
 
 - (void)awakeFromNib
 {
-    self.tabBarItem.image = [[FAKFontAwesome thLargeIconWithSize:30] imageWithSize:CGSizeMake(30, 30)];
+    [super awakeFromNib];
+    self.tabBarItem.image = [[FAKFontAwesome thLargeIconWithSize:30 style:FAKFontAwesomeStyleSolid] imageWithSize:CGSizeMake(30, 30)];
     self.tabBarItem.title = @"App Icons";
 }
 
