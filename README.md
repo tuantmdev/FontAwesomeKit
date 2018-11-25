@@ -2,6 +2,13 @@ FontAwesomeKit ![Cocoapods Version](https://img.shields.io/cocoapods/v/FontAweso
 ==============
 Icon font library for iOS. Currently supports Font-Awesome, Foundation icons, Zocial, and ionicons.
 
+## Version 3.0 Change logs
+### Font Awesome Pro 5 supported (but not included in repo)
+
+- FontAwesomeKit now support Font Awesome Pro version 5.5.0 include more than 4,000 icons in 4 styles.
+- Since copyrights protected, pro icon files will not include in this repo. You *have to* import thems yourself to your projects.
+- This version is not tested on tvOS yet!
+
 ## Version 2.2 Notable Changes
 ### Not Just Awesome. New Icon Fonts Added
 
@@ -22,8 +29,8 @@ Please notice that FontAwesome has renamed lots of it's icons in the recent 4.0 
 
 ## Installation
 ### Requirements
-- Xcode 5
-- iOS 6.0 +
+- Xcode 9
+- iOS 8.0 +
 - tvOS 9.0
 - ARC enabled
 - CoreText framework
@@ -31,7 +38,7 @@ Please notice that FontAwesome has renamed lots of it's icons in the recent 4.0 
 ### Install with CocoaPods (Strongly Recommended)
 FontAwesomeKit now supports sub spec, only get the fonts you need.
 
-Add `pod 'FontAwesomeKit', '~> 2.2.0'` to Podfile to install all icon fonts.
+Add `pod 'FontAwesomeKit', :git => 'https://github.com/tuantmdev/FontAwesomeKit'` to Podfile to install all icon fonts.
 
 Or select icon fonts with:  
 
@@ -61,7 +68,7 @@ Or import icon fonts you installed with sub specs
 If you deleted a sub spec in Podfile, please delete Xcode's derived data in organizer(command+shift+2 to bring up). Otherwise Xcode will keep copying font files those supposed to be deleted to the app bundle.
 
 ### Install with Carthage
-Add `github "PrideChung/FontAwesomeKit"` to Cartfile to install all icon fonts.
+Add `github "tuantmdev/FontAwesomeKit"` to Cartfile to install all icon fonts.
 
 ### Install Manually
 
@@ -71,7 +78,7 @@ Download source code, then drag the folder `FontAwesomeKit` into your project, a
 
 ### Creating Icons
 ```objective-c
-FAKFontAwesome *starIcon = [FAKFontAwesome starIconWithSize:15];
+FAKFontAwesome *starIcon = [FAKFontAwesome starIconWithSize:15 style:FAKFontAwesomeStyleSolid];
 FAKFoundationIcons *bookmarkIcon = [FAKFoundationIcons bookmarkIconWithSize:15];
 FAKZocial *twitterIcon = [FAKZocial twitterIconWithSize:15];  
 FAKIonIcons *mailIcon = [FAKIonIcons ios7EmailIconWithSize:48];
@@ -81,7 +88,7 @@ FAKMaterialIcons *androidIcon = [FAKMaterialIcons androidIconWithSize:48];
 ```
 
 ```swift
-let starIcon = FAKFontAwesome.starIcon(withSize: 15)
+let starIcon = FAKFontAwesome.starIcon(withSize: 15 style: .solid)
 let bookmarkIcon = FAKFoundationIcons.bookmarkIcon(withSize: 15)
 let twitterIcon = FAKZocial.twitterIcon(withSize: 15)
 let mailIcon = FAKIonIcons.ios7EmailIcon(withSize: 48)
@@ -96,7 +103,7 @@ It is now possible to use identifiers to create icons. Check each documentation 
 
 ```objective-c
 NSError *error;
-FAKFontAwesome *starIcon = [FAKFontAwesome  iconWithIdentifier:@"fa-star" size:15 error:error];
+FAKFontAwesome *starIcon = [FAKFontAwesome  iconWithIdentifier:@"fas fa-star" size:15 error:error];
 FAKFoundationIcons *bookmarkIcon = [FAKFoundationIcons iconWithIdentifier:@"fi-bookmark" size:15 error:error];
 FAKZocial *twitterIcon = [FAKZocial iconWithIdentifier:@"zocial.twitter" size:15 error:error];
 FAKIonIcons *mailIcon = [FAKIonIcons iconWithIdentifier:@"ion-ios-email" size:48 error:error];
@@ -104,7 +111,7 @@ FAKIonIcons *mailIcon = [FAKIonIcons iconWithIdentifier:@"ion-ios-email" size:48
 ```swift
 let starIcon: FAKFontAwesome?
 do {
-  starIcon = try FAKFontAwesome.init(identifier: "er", size: 15)
+  starIcon = try FAKFontAwesome.init(identifier: "fab fa-github", size: 15)
 } catch let error as NSError {
   print(error.localizedDescription)
 }
@@ -181,7 +188,7 @@ By default the background is transparent. As the name implies, this property onl
 Some UI elements doesn't have an attributed string property, using images might be a better idea. Take UIBarButtonItem as an example.
 
 ```objc
-FAKFontAwesome *cogIcon = [FAKFontAwesome cogIconWithSize:20];
+FAKFontAwesome *cogIcon = [FAKFontAwesome cogIconWithSize:20 style:FAKFontAwesomeStyleSolid];
 [cogIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
 UIImage *leftImage = [cogIcon imageWithSize:CGSizeMake(20, 20)];
 cogIcon.iconFontSize = 15;
@@ -195,7 +202,7 @@ self.navigationItem.leftBarButtonItem =
 ```
 
 ```swift
-let cogIcon = FAKFontAwesome.cogIcon(withSize: 20)
+let cogIcon = FAKFontAwesome.cogIcon(withSize: 20 style: .solid)
 cogIcon?.addAttribute(NSForegroundColorAttributeName, value: UIColor.white)
 let leftImage = cogIcon?.image(with: CGSize(width: 20, height: 20))
 cogIcon?.iconFontSize = 15
@@ -213,12 +220,12 @@ Same idea can be applied to tab bar or segmented control.
 [Stacked icons is a feature of Font-Awesome](http://fortawesome.github.io/Font-Awesome/examples/#stacked) and now has been ported to FontAwesomeKit. You can generate an image with multiple icons stacked together.
 
 ```objc
-[UIImage imageWithStackedIcons:@[[FAKFontAwesome twitterIconWithSize:35], [FAKFontAwesome squareOIconWithSize:70]],
+[UIImage imageWithStackedIcons:@[[FAKFontAwesome twitterIconWithSize:35 style:FAKFontAwesomeStyleBrands], [FAKFontAwesome squareOIconWithSize:70 style:FAKFontAwesomeStyleRegular]],
                      imageSize:CGSizeMake(80, 80)];
 ```
 
 ```swift
-let image = UIImage(stackedIcons: [FAKFontAwesome.twitterIcon(withSize: 35), FAKFontAwesome.squareOIcon(withSize: 70)], imageSize: CGSize(width: 80, height: 80))
+let image = UIImage(stackedIcons: [FAKFontAwesome.twitterIcon(withSize: 35 style: .brands), FAKFontAwesome.squareOIcon(withSize: 70 style: .regular)], imageSize: CGSize(width: 80, height: 80))
 ```
 
 The first icon in the array will be draw on the bottom.
