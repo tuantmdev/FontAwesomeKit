@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+    
     UIImage *circledFlag =
     [UIImage imageWithStackedIcons:@[[FAKFontAwesome squareOIconWithSize:35], [FAKFontAwesome flagIconWithSize:18]]
                          imageSize:CGSizeMake(35, 35)];

@@ -14,6 +14,7 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
     self.tabBarItem.image = [[FAKFoundationIcons filterIconWithSize:30] imageWithSize:CGSizeMake(30, 30)];
     self.tabBarItem.title = @"Kitchen Sink";
 }
