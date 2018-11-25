@@ -1,4 +1,4 @@
-require '../CodeGenerator.rb'
+require './CodeGenerator.rb'
 
 names = [];
 codes = [];
@@ -27,7 +27,7 @@ File.read("_variables.scss").each_line do |line|
     names.push name
   
     code = parts[1]
-    code = code[2..5]
+    code = code[1..4]
     codes.push "\\u#{code}"
   end
 end
